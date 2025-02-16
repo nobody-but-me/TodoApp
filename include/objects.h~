@@ -1,0 +1,25 @@
+#pragma once
+
+#ifndef OBJECTS_H
+#define OBJECTS_H
+
+#include <raylib.h>
+
+namespace OBJECT {
+    class Object {
+	private:
+	    Vector2 _positon;
+	    Vector2 _size;
+	public:
+	    void ~Object();
+	    void Object();
+    };
+    
+    class Button: public Object {
+	public:
+	    void ~Button;
+	    void Button;
+    };
+}
+
+#endif//OBJECTS_H
