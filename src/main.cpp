@@ -13,13 +13,16 @@ int main(int argv, char **argc) {
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "C++ To-do Application");
     SetWindowState(FLAG_WINDOW_RESIZABLE);
     
-    OBJECT::Button _button((Vector2){400 - BUTTON_SIZE.x / 2, 300 - BUTTON_SIZE.y / 2});
+    OBJECT::CheckerButton _checker_button((Vector2){400 - BUTTON_SIZE.x / 2, 300 - BUTTON_SIZE.y / 2});
+    OBJECT::Button _button((Vector2){100, 100});
+    _checker_button._checked = true;
     
     SetTargetFPS(60);
     while(!WindowShouldClose()) {
 	BeginDrawing();
 	
 	ClearBackground((Color){7, 7, 7, 255});
+	_checker_button._render();
 	_button._render();
 	
 	EndDrawing();

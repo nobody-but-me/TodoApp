@@ -18,25 +18,25 @@ namespace OBJECT {
 	    Vector2 _position;
 	    Vector2 _size;
 	    Color _color;
+	    
+	    bool _mouse_click(int _mouse_button);
+	    bool _mouse_over();
     };
     
     class Button: public Object {
 	public:
-	    
 	    Button(Vector2 _position);
-	    bool _mouse_click(int _mouse_button);
-	    bool _mouse_over();
+	    
 	    void _render();
     };
 
-    class CheckerButton: public Button {
+    class CheckerButton: public Object {
 	public:
+	    CheckerButton(Vector2 _position);
+	    
 	    bool _checked = false;
-	    
-	    CheckerButton(Vector2 _position, bool _checked = false);
-	    
 	    void _render();
-    } 
+    };
 }
 
 #endif//OBJECTS_H
