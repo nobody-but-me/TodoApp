@@ -4,7 +4,7 @@
 
 #include <objects.h>
 
-#define INITIAL_NUMBER_OF_ROWS 10
+#define INITIAL_NUMBER_OF_ROWS 5
 #define WINDOW_WIDTH  800
 #define WINDOW_HEIGHT 600
 
@@ -19,6 +19,8 @@ int main(int argv, char **argc) {
     Font _font = LoadFont("./assets/Iosevka.ttf");
     
     // OBJECT::CheckerButton _checker_button((Vector2){400 - BUTTON_SIZE.x / 2, 300 - BUTTON_SIZE.y / 2});
+    OBJECT::Button _add_task_button((Vector2){10, 10});
+    _add_task_button._size.x = WINDOW_WIDTH - 40;
     
     Vector2 _list_position = (Vector2){20, 20};
     _number_of_rows = INITIAL_NUMBER_OF_ROWS;
@@ -41,6 +43,10 @@ int main(int argv, char **argc) {
 	    DrawTextEx(_font, "Text", _text_position[i], _font.baseSize * 0.9f, 0.5f, RAYWHITE);
 	    _checker_button[i]->_render();
 	}
+	float _y_expression = (_text_position[_number_of_rows].y + 30 * _number_of_rows) + BUTTON_SIZE.y;
+	_add_task_button._position = (Vector2){_text_position[_number_of_rows].x + 20, _y_expression};
+	
+	_add_task_button._render();
 	
 	EndDrawing();
 	
